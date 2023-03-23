@@ -31,43 +31,24 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-////////////////////////////////////////////////////////
-// selecting elements
-console.log(document.documentElement);
-console.log(document.head);
-console.log(document.body);
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
 
-const header = document.querySelector(".header");
-const allSection = document.querySelectorAll(".section");
-console.log(allSection);
+btnScrollTo.addEventListener("click", function (e) {
+  // const s1coords = section1.getBoundingClientRect();
+  // console.log(s1coords);
 
-document.getElementById("section--1");
-const allButtons = document.getElementsByTagName("button");
-console.log(allButtons);
+  //scrolling
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: "smooth",
+  // });
 
-console.log(document.getElementsByClassName("btn"));
-
-// creating and insterting elements
-
-const message = document.createElement("div");
-message.classList.add("cookie-message");
-// message.textContent =
-//   'We use cookies for improved functionality and analitycis';
-message.innerHTML =
-  'We use cookies for improved functionality and analitycis. <button class="btn btn--close-cookie">Got it!</button>';
-
-// header.prepend(message);
-header.append(message);
-// header.append(message.cloneNode(true));
-
-// header.before(message);
-header.after(message);
-
-console.log(message);
-// Delete elements
-
-const cookieBtn = document.querySelector(".btn--close-cookie");
-cookieBtn.addEventListener("click", function () {
-  // message.remove();
-  message.parentElement.removeChild(message);
+  // new way
+  section1.scrollIntoView({ behavior: "smooth" });
 });
